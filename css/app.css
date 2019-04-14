@@ -1,0 +1,387 @@
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #ffffff url('../img/geometry2.png');
+	font-family: 'Acme', sans-serif;
+	font-size: 16px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h2 {
+    font-family: 'Acme', sans-serif;
+    font-weight: bold;
+		font-size: 2em;
+		padding: 0px;
+		margin: 10px 0 5px 0;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 620px;
+    min-height: 620px;
+    background: linear-gradient(20deg, #ff8c69 0%, #f9ffc2 100%);
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 15px 15px 15px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #6a3d2f;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+	transform: rotateY(0);
+	background: #bf6c52;
+	cursor: default;
+	animation-name: flipInX;
+	-webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+	animation-duration: 1s;
+}
+
+.deck .card.show {
+	font-size: 33px;
+}
+
+.deck .card.disabled {
+	pointer-events: none;
+	opacity: 1;
+}
+
+.deck .card.match {
+	cursor: default;
+	background: #5de859;
+	font-size: 33px;
+	animation-name: tada;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+}
+
+.deck .card.unmatched {
+	animation-name: shake;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: 0.8s;
+	animation-fill-mode: both;
+	background: #ee4d75;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+.score-panel {
+    text-align: left;
+    width: 550px;
+    margin-bottom: 7px;
+}
+
+.score-panel .stars {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin: 0 25px 0 0;
+}
+
+.medium {
+  font-size: 1.3em;
+}
+.large {
+  font-size: 1.5em;
+}
+
+.score-panel .stars li {
+	list-style: none;
+	display: inline-block;
+}
+
+.score-panel .restart {
+	float: right;
+	cursor: pointer;
+}
+
+.timer {
+	display: inline-block;
+	margin: 0 2em;
+}
+
+/*
+ * Styles for congratulations pop-up window
+ */
+.PopUpWindow {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: white;
+	transition: opacity 400ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.PopUpWindow:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.pop-w {
+	margin: 70px auto;
+	padding: 25px;
+	background: rgb(236, 236, 236);
+	border-radius: 30px;
+	width: 40%;
+	position: relative;
+	transition: all 5s ease-in-out;
+	font-family: 'Coda', cursive;
+}
+
+.pop-w h1 {
+	text-align: center;
+	color: #554f4f;
+	font-family: 'Acme', sans-serif;
+}
+
+.pop-w .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #554f4f;
+}
+
+.pop-w .close:hover {
+	color: #bf6c52;
+}
+
+.pop-w .congratulations {
+	text-align: center;
+}
+
+.congrat-content {
+	max-height: 25%;
+	overflow: auto;
+	text-align: center;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+#starRating li {
+	display: inline-block;
+}
+
+#play-again {
+	background-color: #bf6c52;
+	padding: 6px;
+	font-size: 1em;
+	display: block;
+	margin: 0 auto;
+	width: 30%;
+	font-family: 'Coda', cursive;
+	color: #ffffff;
+	border-radius: 15px;
+}
+
+/*animation for card flipping*/
+  @-webkit-keyframes flipInX {
+  0% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  opacity: 0;
+  }
+  40% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  }
+  60% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+  opacity: 1;
+  }
+  80% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  100% {
+  -webkit-transform: perspective(400px);
+  transform: perspective(400px);
+  }
+  }
+  @keyframes flipInX {
+  0% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  opacity: 0;
+  }
+  40% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  }
+  60% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+  opacity: 1;
+  }
+  80% {
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  100% {
+  -webkit-transform: perspective(400px);
+  transform: perspective(400px);
+  }
+  }
+
+/*animation for matched cards*/
+@-webkit-keyframes tada {
+  0% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+  -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  100% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  }
+  @keyframes tada {
+  0% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+  -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  100% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  }
+
+/*animation for cards that do not match*/
+@-webkit-keyframes shake {
+  0%, 100% {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+  -webkit-transform: translate3d(-10px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+  -webkit-transform: translate3d(10px, 0, 0);
+  transform: translate3d(10px, 0, 0);
+  }
+  }
+  @keyframes shake {
+  0%, 100% {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+  -webkit-transform: translate3d(-10px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+  -webkit-transform: translate3d(10px, 0, 0);
+  transform: translate3d(10px, 0, 0);
+  }
+  }
+
+/* Media queries */
+@media screen and (min-width: 800px) {
+	.container {
+		font-size: 20px;
+	}
+	.deck {
+		width: 630px;
+		height: 630px;
+	}
+	.deck .card {
+		height: 125px;
+		width: 125px;
+	}
+	.pop-w {
+		width: 40%;
+	}
+}
