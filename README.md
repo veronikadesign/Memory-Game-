@@ -1,8 +1,11 @@
 # Memory Game (also known as Pexeso)
-This is the **second project** for FEND. 
+This is the **second project** for FEND.
+
+## Installation
+- Clone this repository: https://github.com/veronikadesign/Memory-Game-
+- Then just open index.html in browser and play 
 
 ## How to play
-- **Open this link** [TO PLAY](https://github.com/veronikadesign/Memory-Game-/blob/master/index.html)
 - Start by selecting two random cards by left clicking on them.
 - If the icons match the background changes to green and the cards stay displayed. 
 - If the icons don't match the background turns red and they are flipped back over.
