@@ -5,6 +5,8 @@ This is the **second project** for FEND.
 - Clone this repository: https://github.com/veronikadesign/Memory-Game-
 - Then just open index.html in browser and play 
 
+- or click on [play now](https://htmlpreview.github.io/?https://github.com/veronikadesign/Memory-Game-/blob/master/index.html)
+
 ## How to play
 - Start by selecting two random cards by left clicking on them.
 - If the icons match the background changes to green and the cards stay displayed. 
