@@ -4,16 +4,6 @@
   font-family: 'FontAwesome', sans-serif;
 }
 
-html {
-	box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-}
-
 html,
 body {
 	width: 100%;
@@ -23,7 +13,7 @@ body {
 }
 
 body {
-	background: #ffffff url('../img/geometry2.png');
+	background: #ffffff url('../img/geometry2.png');     /*CHANGE BACKGROUND PHOTO*/
 	font-family: 'Acme', sans-serif;
 	font-size: 16px;
 }
@@ -43,34 +33,31 @@ h2 {
 		margin: 10px 0 5px 0;
 }
 
-/*
- * Styles for the deck of cards
- */
+/* Styles for the deck of cards */
 
 .deck {
     max-width: 100%;
-    max-width: 100%;
-    min-width: 550px;
-    min-height: 550px;
+    min-width: 200px;
+    min-height: 200px;
     background: linear-gradient(20deg, #ff8c69 0%, #f9ffc2 100%);
-    padding: 15px;
+    padding: 2px;
     border-radius: 10px;
     box-shadow: 15px 15px 15px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    margin: 2px;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    margin: 5px;
+    height: 70px;
+    width: 70px;
+    margin: 2px;
     background: #6a3d2f;
     font-size: 0;
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -117,12 +104,10 @@ h2 {
 	background: #ee4d75;
 }
 
-/*
- * Styles for the Score Panel
- */
+/* Styles for the Score Panel */
 .score-panel {
     text-align: left;
-    width: 550px;
+    width: 90%;
     margin-bottom: 7px;
 }
 
@@ -152,12 +137,10 @@ h2 {
 
 .timer {
 	display: inline-block;
-	margin: 0 2em;
+	margin: 0 1em;
 }
 
-/*
- * Styles for congratulations pop-up window
- */
+/* Styles for congratulations pop-up window */
 .PopUpWindow {
 	position: fixed;
 	top: 0;
@@ -176,11 +159,12 @@ h2 {
 }
 
 .pop-w {
-	margin: 70px auto;
-	padding: 25px;
+	margin: 8px;
+	padding: 20px;
 	background: rgb(236, 236, 236);
 	border-radius: 30px;
-	width: 40%;
+	min-width: 200px;
+  max-width: 100%;
 	position: relative;
 	transition: all 5s ease-in-out;
 	font-family: 'Coda', cursive;
@@ -231,7 +215,7 @@ h2 {
 	font-size: 1em;
 	display: block;
 	margin: 0 auto;
-	width: 30%;
+	width: 55%;
 	font-family: 'Coda', cursive;
 	color: #ffffff;
 	border-radius: 15px;
@@ -372,94 +356,119 @@ h2 {
   }
 
 /* Media queries */
-@media screen and (max-width: 349px) {
+@media screen and (min-width: 350px) and (max-width: 379.9px) {
   .deck {
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 100%;
-    max-height: 100%;
-    padding: 0px;
-  }
-  .deck .card {
-		height: 70px;
-		width: 70px;
-    margin: 2px;
-	}
-  .score-panel {
-      text-align: left;
       min-width: 300px;
-      max-width: 100%;
-      margin-bottom: 3px;
+      min-height: 320px;
+      padding: 5px;
+      margin: 3px;
+  }
+  .deck .card {
+      height: 75px;
+      width: 75px;
+      margin: 2px;
+  }
+  .pop-w {
+  	margin: 10px;
   }
 }
 
-@media screen and (min-width: 349px) and (max-width: 470px) {
+@media screen and (min-width: 380px) and (max-width: 449.9px){
   .deck {
-    min-width: 290px;
-    min-height: 290px;
-    max-width: 100%;
-    max-height: 100%;
-    padding: 0px;
+      padding: 5px;
+      margin: 4px;
   }
   .deck .card {
-		height: 80px;
-		width: 80px;
-    margin: 2px;
-	}
+      height: 86px;
+      width: 86px;
+      margin: 2px;
+  }
+  .pop-w {
+  	margin: 15px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 509.9px) {
+  .deck {
+    padding: 15px;
+  }
+  .deck .card {
+      height: 90px;
+      width: 90px;
+      margin: 5.5px;
+  }
   .score-panel {
-      text-align: left;
-      min-width: 290px;
-      max-width: 100%;
-      margin-bottom: 7px;
+    font-size: 1.1em;
   }
+
 }
 
-@media screen and (min-width: 470px) and (max-width: 600px) {
+@media screen and (min-width: 510px) and (max-width: 589.9px){
   .deck {
-    min-width: 340px;
-    min-height: 340px;
-    max-width: 100%;
-    max-height: 100%;
+    padding: 20px;
   }
   .deck .card {
-		height: 100px;
-		width: 100px;
-    margin: 2px;
-	}
+      height: 100px;
+      width: 100px;
+      margin: 5px;
+  }
   .score-panel {
-      text-align: left;
-      min-width: 315px;
-      max-width: 100%;
-      margin-bottom: 7px;
+    font-size: 1.2em;
   }
 }
 
-@media screen and (min-width: 800px) {
-	.container {
-		font-size: 20px;
-	}
-	.deck {
-		width: 620px;
-		height: 620px;
-    max-width: 100%;
-    max-height: 100%;
-}
-	.deck .card {
-		height: 125px;
-		width: 125px;
-	}
-	.pop-w {
-		width: 40%;
-	}
-}
-
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 590px) and (max-width: 609.9px) {
   .deck {
-    width: 750px;
-		height: 750px;
+    padding: 25px;
   }
   .deck .card {
-		height: 150px;
-		width: 150px;
-	}
+      height: 117px;
+      width: 117px;
+      margin: 7px;
+  }
+  .score-panel {
+    font-size: 1.3em;
+  }
+}
+@media screen and (min-width: 610px) {
+  body {
+    font-size:
+  }
+  .deck {
+    padding: 25px;
+    max-width: 610px;
+    max-height: 610px;
+  }
+  .deck .card {
+    min-height: 125px;
+    min-width: 125px;
+    margin: 7px;
+  }
+  .pop-w {
+  	width: 500px;
+    height: auto;
+    max-height: 360px;
+    margin: 70px auto;
+  }
+  .score-panel {
+    max-width: 610px;
+    font-size: 1.5em;
+  }
+  h2 {
+		font-size: 2.3em;
+  }
+  .congrat-content {
+  	max-height: 30%;
+  }
+  #play-again {
+  	padding: 6px;
+  	margin: 0 auto;
+  	width: 55%;
+  }
+  .deck .card.show {
+  	font-size: 40px;
+  }
+  .deck .card.match {
+  	font-size: 40px;
+  }
 }
